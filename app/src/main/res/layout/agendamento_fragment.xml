@@ -21,7 +21,7 @@
             android:id="@+id/input_especialidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/agendamento_name_hint"
+            android:hint="@string/agendamento_especialidade_hint"
             android:inputType="textCapSentences"/>
 
     </com.google.android.material.textfield.TextInputLayout>

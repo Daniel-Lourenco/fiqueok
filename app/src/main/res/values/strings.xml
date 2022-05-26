@@ -2,12 +2,14 @@
     <string name="app_name">FiqueOk</string>
 
     <!--AgendamentoFragment-->
-    <string name="agendamento_name_hint">Calendar</string>
-    <string name="agendamento_email_hint">E-mail</string>
+    <string name="agendamento_especialidade_hint">Especialidade</string>
+    <string name="agendamento_data_hint">Data da consulta</string>
+    <string name="agendamento_horario_hint">Horário</string>
     <string name="agendamento_button">Agendar</string>
     <string name="agendamento_title">Agendamento</string>
     <string name="agendamento_inserted_successfully">Agendamento efetuado com sucesso!</string>
     <string name="agendamento_error_to_insert">Ocorreu um erro ao efetuar o agendamento!</string>
-    <string name="agendamento_data_hint">Data da consulta</string>
-    <string name="agendamento_horario_hint">Horário</string>
+
+    <!-- AgendamentoList -->
+    <string name="agendamentoList_title">Consultas agendadas</string>
 </resources>

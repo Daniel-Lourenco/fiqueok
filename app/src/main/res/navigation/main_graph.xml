@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/agendamentoListFragment"
         android:name="com.example.fiqueok.ui.agendamentolist.AgendamentoListFragment"
-        android:label="agendamento_list_fragment"
+        android:label="@string/agendamentoList_title"
         tools:layout="@layout/agendamento_list_fragment" />
 
     <fragment

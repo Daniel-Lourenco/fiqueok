@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.fiqueok.R
+import com.example.fiqueok.ui.agendamentolist.AgendamentoListAdapter
 import com.example.fiqueok.data.db.AppDatabase
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
+import com.example.fiqueok.extension.navigateWithAnimations
 import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
 import kotlinx.android.synthetic.main.agendamento_list_fragment.*
@@ -49,7 +52,7 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
 
     private fun configureViewListeners(){
         fabAddAgendamento.setOnClickListener{
-            findNavController().navigate(R.id.agendamentoFragment)
+            findNavController().navigateWithAnimations(R.id.agendamentoFragment)
         }
     }
 
