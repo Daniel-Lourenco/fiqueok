@@ -43,7 +43,7 @@ class DatabaseDataSource(
         atendimentosDAO.deleteAll()
     }
 
-    override suspend fun getAllAgendamento(): LiveData<List<AgendamentoEntity>> {
+    override fun getAllAgendamento(): LiveData<List<AgendamentoEntity>> {
         return atendimentosDAO.getAll()
     }
 

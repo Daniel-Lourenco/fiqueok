@@ -1,7 +1,10 @@
 package com.example.fiqueok.ui.agendamentolist
 
 import androidx.lifecycle.ViewModel
+import com.example.fiqueok.repository.AgendamentoRepository
 
-class AgendamentoListViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class AgendamentoListViewModel(
+    private val repository: AgendamentoRepository
+) : ViewModel() {
+    val allAgendamentosEvent = repository.getAllAgendamento()
 }

@@ -3,11 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/agendamentoFragment">
+    app:startDestination="@id/agendamentoListFragment">
+
+    <fragment
+        android:id="@+id/agendamentoListFragment"
+        android:name="com.example.fiqueok.ui.agendamentolist.AgendamentoListFragment"
+        android:label="agendamento_list_fragment"
+        tools:layout="@layout/agendamento_list_fragment" />
 
     <fragment
         android:id="@+id/agendamentoFragment"
         android:name="com.example.fiqueok.ui.agendamento.AgendamentoFragment"
         android:label="@string/agendamento_title"
         tools:layout="@layout/agendamento_fragment" />
+
 </navigation>
