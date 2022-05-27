@@ -22,5 +22,5 @@ interface AtendimentosDAO {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM atendimentos")
-    fun getAll(): LiveData<List<AgendamentoEntity>>
+    suspend fun getAll(): List<AgendamentoEntity>
 }

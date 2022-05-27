@@ -40,14 +40,23 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
 
     private fun observeViewModelEvents() {
         viewModel.allAgendamentosEvent.observe(viewLifecycleOwner) { allAgendamentos ->
-            val agendamentoListAdapter = AgendamentoListAdapter(allAgendamentos)
+            val agendamentoListAdapter = AgendamentoListAdapter(allAgendamentos).apply {
+                onItemClick = { agendamento ->
+                    val directions = AgendamentoListFragmentDirections
+                        .actionAgendamentoListFragmentToAgendamentoFragment(agendamento)
+                    findNavController().navigateWithAnimations(directions)
+                }
+            }
 
             with(recycler_agendamentos) {
                 setHasFixedSize(true)
                 adapter = agendamentoListAdapter
             }
         }
-
+    }
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAgendamentos()
     }
 
     private fun configureViewListeners(){

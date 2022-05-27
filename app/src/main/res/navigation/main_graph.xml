@@ -9,12 +9,21 @@
         android:id="@+id/agendamentoListFragment"
         android:name="com.example.fiqueok.ui.agendamentolist.AgendamentoListFragment"
         android:label="@string/agendamentoList_title"
-        tools:layout="@layout/agendamento_list_fragment" />
+        tools:layout="@layout/agendamento_list_fragment" >
+        <action
+            android:id="@+id/action_agendamentoListFragment_to_agendamentoFragment"
+            app:destination="@id/agendamentoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/agendamentoFragment"
         android:name="com.example.fiqueok.ui.agendamento.AgendamentoFragment"
         android:label="@string/agendamento_title"
-        tools:layout="@layout/agendamento_fragment" />
+        tools:layout="@layout/agendamento_fragment" >
+        <argument
+            android:name="agendamento"
+            app:argType="com.example.fiqueok.data.db.entity.AgendamentoEntity"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

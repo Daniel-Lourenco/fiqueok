@@ -12,5 +12,5 @@ interface AgendamentoRepository {
 
     suspend fun deleteAllAgendamento()
 
-    fun getAllAgendamento(): LiveData<List<AgendamentoEntity>>
+    suspend fun getAllAgendamento(): List<AgendamentoEntity>
 }

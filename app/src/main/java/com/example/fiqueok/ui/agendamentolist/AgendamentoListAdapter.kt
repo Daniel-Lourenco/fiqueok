@@ -13,6 +13,8 @@ class AgendamentoListAdapter(
     private val agendamentos: List<AgendamentoEntity>
 ) : RecyclerView.Adapter<AgendamentoListAdapter.AgendamentoListViewHolder>() {
 
+    var onItemClick: ((entity: AgendamentoEntity) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AgendamentoListViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.agendamento_item, parent, false)
@@ -26,7 +28,7 @@ class AgendamentoListAdapter(
 
     override fun getItemCount(): Int = agendamentos.size
 
-    class AgendamentoListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class AgendamentoListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewAgendamentoEspecialidade: TextView = itemView.text_agendamento_especialidade
         private val textViewAgendamentoData: TextView = itemView.text_agendamento_data
         private val textViewAgendamentoHorario: TextView = itemView.text_agendamento_horario
@@ -35,6 +37,10 @@ class AgendamentoListAdapter(
             textViewAgendamentoEspecialidade.text = agendamento.especialidade
             textViewAgendamentoData.text = agendamento.data
             textViewAgendamentoHorario.text = agendamento.horario
+
+            itemView.setOnClickListener{
+                onItemClick?.invoke(agendamento)
+            }
         }
     }
 }
