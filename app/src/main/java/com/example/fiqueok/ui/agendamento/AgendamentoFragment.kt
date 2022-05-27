@@ -61,7 +61,7 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
                     clearFields()
                     hideKeyboard()
                     requireView().requestFocus()
-                    
+
                     findNavController().popBackStack()
                 }
 
