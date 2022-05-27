@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.fiqueok.R
 import com.example.fiqueok.data.db.AppDatabase
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
@@ -18,7 +19,6 @@ import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.agendamento_fragment.*
-
 
 
 class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
@@ -35,9 +35,19 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         }
     }
 
+    private val args: AgendamentoFragmentArgs by navArgs()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        args.agendamento?.let { agendamento ->
+            button_agendamento.text = getString(R.string.agendamento_button_update)
+            input_especialidade.setText(agendamento.especialidade)
+            input_data.setText(agendamento.data)
+            input_horario.setText(agendamento.horario)
+
+            button_delete.visibility = View.VISIBLE
+        }
         observeEvents()
         setListeners()
     }
@@ -45,13 +55,16 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
     private fun observeEvents() {
         viewModel.agendamentoStateEventData.observe(viewLifecycleOwner) { subscriberState ->
             when (subscriberState) {
-                is AgendamentoViewModel.AgendamentoState.Inserted -> {
+                is AgendamentoViewModel.AgendamentoState.Inserted,
+                is AgendamentoViewModel.AgendamentoState.Updated,
+                is AgendamentoViewModel.AgendamentoState.Deleted -> {
                     clearFields()
                     hideKeyboard()
                     requireView().requestFocus()
-
+                    
                     findNavController().popBackStack()
                 }
+
             }
         }
 
@@ -79,7 +92,11 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
             val data = input_data.text.toString()
             val horario = input_horario.text.toString()
 
-            viewModel.addAgendamento(especialidade, data, horario)
+            viewModel.addOrUpdateAgendamento(especialidade, data, horario, args.agendamento?.id ?: 0)
+        }
+
+        button_delete.setOnClickListener{
+            viewModel.removeAgendamento(args.agendamento?.id ?: 0)
         }
     }
 }

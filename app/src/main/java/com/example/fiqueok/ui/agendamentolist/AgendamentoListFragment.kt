@@ -54,14 +54,15 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
             }
         }
     }
+
     override fun onResume() {
         super.onResume()
         viewModel.getAgendamentos()
     }
 
-    private fun configureViewListeners(){
-        fabAddAgendamento.setOnClickListener{
-            findNavController().navigateWithAnimations(R.id.agendamentoFragment)
+    private fun configureViewListeners() {
+        fabAddAgendamento.setOnClickListener {
+            findNavController().navigateWithAnimations(R.id.action_agendamentoListFragment_to_agendamentoFragment)
         }
     }
 

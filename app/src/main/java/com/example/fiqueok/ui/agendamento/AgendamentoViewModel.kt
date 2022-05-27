@@ -21,24 +21,63 @@ class AgendamentoViewModel(
     val messageEventData: LiveData<Int>
         get() = _messageEventData
 
-    fun addAgendamento(especialidade: String, data: String, horario: String) = viewModelScope.launch {
-        try {
-            val id = repository.insertAgendamento(especialidade, data, horario)
-            if (id > 0){
-                _agendamentoStateEventData.value = AgendamentoState.Inserted
-                _messageEventData.value = R.string.agendamento_inserted_successfully
+    fun addOrUpdateAgendamento(especialidade: String, data: String, horario: String, id: Long = 0) {
+        if (id > 0) {
+            updateAgendamento(id, especialidade, data, horario)
+        } else {
+            insertAgendamento(especialidade, data, horario)
+        }
+    }
+
+    private fun updateAgendamento(id: Long, especialidade: String, data: String, horario: String) =
+        viewModelScope.launch {
+            try {
+                repository.updateAgendamento(id, especialidade, data, horario)
+
+                _agendamentoStateEventData.value = AgendamentoState.Updated
+                _messageEventData.value = R.string.agendamento_updated_successfully
+            } catch (ex: Exception) {
+                _messageEventData.value = R.string.agendamento_error_to_update
+                Log.e(TAG, ex.toString())
             }
-        } catch (ex: Exception){
-            _messageEventData.value = R.string.agendamento_error_to_insert
+        }
+
+    private fun insertAgendamento(especialidade: String, data: String, horario: String) =
+        viewModelScope.launch {
+            try {
+                val id = repository.insertAgendamento(especialidade, data, horario)
+                if (id > 0) {
+                    _agendamentoStateEventData.value = AgendamentoState.Inserted
+                    _messageEventData.value = R.string.agendamento_inserted_successfully
+                }
+            } catch (ex: Exception) {
+                _messageEventData.value = R.string.agendamento_error_to_insert
+                Log.e(TAG, ex.toString())
+            }
+        }
+
+    fun removeAgendamento(id: Long) = viewModelScope.launch {
+        try {
+            if (id > 0) {
+                repository.deleteAgendamento(id)
+                _agendamentoStateEventData.value = AgendamentoState.Deleted
+                _messageEventData.value = R.string.agendamento_deleted_successfully
+            }
+        } catch (ex: Exception) {
+            _messageEventData.value = R.string.agendamento_error_to_delete
             Log.e(TAG, ex.toString())
         }
     }
 
+
+
     sealed class AgendamentoState {
         object Inserted : AgendamentoState()
+        object Updated : AgendamentoState()
+        object Deleted : AgendamentoState()
     }
 
-    companion object{
+    companion object {
         private val TAG = AgendamentoViewModel::class.java.simpleName
     }
 }

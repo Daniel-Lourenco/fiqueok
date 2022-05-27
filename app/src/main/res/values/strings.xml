@@ -6,10 +6,16 @@
     <string name="agendamento_data_hint">Data da consulta</string>
     <string name="agendamento_horario_hint">Horário</string>
     <string name="agendamento_button">Agendar</string>
+    <string name="agendamento_button_update">Atualizar</string>
     <string name="agendamento_title">Agendamento</string>
     <string name="agendamento_inserted_successfully">Agendamento efetuado com sucesso!</string>
     <string name="agendamento_error_to_insert">Ocorreu um erro ao efetuar o agendamento!</string>
 
     <!-- AgendamentoList -->
     <string name="agendamentoList_title">Consultas agendadas</string>
+    <string name="agendamento_updated_successfully">Agendamento atualizado com sucesso</string>
+    <string name="agendamento_button_delete">Deletar</string>
+    <string name="agendamento_deleted_successfully">Atendimento desmarcado!</string>
+    <string name="agendamento_error_to_delete">Ocorreu um erro ao tentar desmarcar.</string>
+    <string name="agendamento_error_to_update">Ocorreu um erro ao tentar atualizar.</string>
 </resources>
