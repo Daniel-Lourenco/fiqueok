@@ -58,6 +58,9 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.4.0'
+
+
     //Firebase Performance Monitoring
     // Import the BoM for the Firebase platform
     //implementation platform('com.google.firebase:firebase-bom:30.0.1')

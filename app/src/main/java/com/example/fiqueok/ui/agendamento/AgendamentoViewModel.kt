@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.fiqueok.R
 import com.example.fiqueok.repository.AgendamentoRepository
 import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
 
 class AgendamentoViewModel(
     private val repository: AgendamentoRepository
@@ -45,6 +46,7 @@ class AgendamentoViewModel(
     private fun insertAgendamento(especialidade: String, data: String, horario: String) =
         viewModelScope.launch {
             try {
+
                 val id = repository.insertAgendamento(especialidade, data, horario)
                 if (id > 0) {
                     _agendamentoStateEventData.value = AgendamentoState.Inserted

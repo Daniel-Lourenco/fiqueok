@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.agendamento_fragment.*
 
 class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
 
+    private var dataSelecionada: String ="0"
     private val viewModel: AgendamentoViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -43,7 +44,7 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         args.agendamento?.let { agendamento ->
             button_agendamento.text = getString(R.string.agendamento_button_update)
             input_especialidade.setText(agendamento.especialidade)
-            input_data.setText(agendamento.data)
+            input_data.text = agendamento.data?.toLocalDate().toString()
             input_horario.setText(agendamento.horario)
 
             button_delete.visibility = View.VISIBLE
@@ -88,14 +89,17 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
 
     private fun setListeners() {
         button_data.setOnClickListener {
-            DatePickerFragment { result -> input_data.text = result }
+            DatePickerFragment {
+                result -> input_data.text = result
+                dataSelecionada = result
+            }
                 .show(childFragmentManager,"datePicker")
         }
 
 
         button_agendamento.setOnClickListener {
             val especialidade = input_especialidade.text.toString()
-            val data = input_data.text.toString()
+            val data = input_data?.text.toString()
             val horario = input_horario.text.toString()
 
             viewModel.addOrUpdateAgendamento(especialidade, data, horario, args.agendamento?.id ?: 0)

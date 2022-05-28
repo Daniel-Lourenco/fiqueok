@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        input_data.setText(Calendar.DATE)
-
         setSupportActionBar(app_toolbar)
         //val app_toolbar = findViewById<Toolbar>(R.id.app_toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

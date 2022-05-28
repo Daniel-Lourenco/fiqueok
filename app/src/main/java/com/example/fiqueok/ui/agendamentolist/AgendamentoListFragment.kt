@@ -64,10 +64,6 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
         button_agendar.setOnClickListener {
             findNavController().navigateWithAnimations(R.id.action_agendamentoListFragment_to_agendamentoFragment)
         }
-
-        fabAddAgendamento.setOnClickListener {
-            findNavController().navigateWithAnimations(R.id.action_agendamentoListFragment_to_agendamentoFragment)
-        }
     }
 
 }
