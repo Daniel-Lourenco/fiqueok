@@ -26,23 +26,32 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:id="@+id/input_layout_data"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
-        app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade">
+        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <Button
+            android:id="@+id/button_data"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Data"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <TextView
             android:id="@+id/input_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/agendamento_data_hint"
-            android:inputType="date"/>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:textSize="16sp"
+            android:gravity="center"
+            tools:text="@tools:sample/date/ddmmyy" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_horario"
@@ -62,15 +71,17 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
         android:id="@+id/button_agendamento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="184dp"
         android:text="@string/agendamento_button"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_horario"
-        app:layout_constraintStart_toStartOf="@id/input_layout_horario"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_horario" />
+        app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade" />
 
     <Button
         android:id="@+id/button_delete"
@@ -83,8 +94,10 @@
         android:visibility="gone"
         android:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_horario"
-        app:layout_constraintStart_toStartOf="@id/input_layout_horario"
+        app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
+        app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
         tools:visibility="visible" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

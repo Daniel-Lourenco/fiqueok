@@ -75,7 +75,7 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
 
     private fun clearFields() {
         input_especialidade.text?.clear()
-        input_data.text?.clear()
+        //input_data.text?.clear()
         input_horario.text?.clear()
     }
 
@@ -87,6 +87,12 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
     }
 
     private fun setListeners() {
+        button_data.setOnClickListener {
+            DatePickerFragment { result -> input_data.text = result }
+                .show(childFragmentManager,"datePicker")
+        }
+
+
         button_agendamento.setOnClickListener {
             val especialidade = input_especialidade.text.toString()
             val data = input_data.text.toString()

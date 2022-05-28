@@ -11,6 +11,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.agendamento_fragment.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        input_data.setText(Calendar.DATE)
 
         setSupportActionBar(app_toolbar)
         //val app_toolbar = findViewById<Toolbar>(R.id.app_toolbar)
