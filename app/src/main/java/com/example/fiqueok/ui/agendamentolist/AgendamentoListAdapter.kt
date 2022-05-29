@@ -35,7 +35,7 @@ class AgendamentoListAdapter(
 
         fun bindView(agendamento: AgendamentoEntity) {
             textViewAgendamentoEspecialidade.text = agendamento.especialidade
-            textViewAgendamentoData.text = agendamento.data//?.toLocalDate().toString()
+            textViewAgendamentoData.text = agendamento.data
             textViewAgendamentoHorario.text = agendamento.horario
 
             itemView.setOnClickListener{

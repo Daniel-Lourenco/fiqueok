@@ -18,4 +18,31 @@
     <string name="agendamento_deleted_successfully">Atendimento desmarcado!</string>
     <string name="agendamento_error_to_delete">Ocorreu um erro ao tentar desmarcar.</string>
     <string name="agendamento_error_to_update">Ocorreu um erro ao tentar atualizar.</string>
+    <string name="ou">Ou</string>
+
+    <!-- Lista de especialidade -->
+    <string-array name="lista_especialidades">
+        <item>Psicólogo</item>
+        <item>Psiquiatra</item>
+        <item>Assistente Social</item>
+        <item>Advogado</item>
+        <item>Nutricionista</item>
+        <item>Fisioterapeuta</item>
+        <item>Personal Trainer</item>
+        <item>Consultor Pet</item>
+        <item>Orientador financeiro</item>
+    </string-array>
+
+    <!-- Lista de Horários -->
+    <string-array name="lista_horarios">
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+    </string-array>
 </resources>

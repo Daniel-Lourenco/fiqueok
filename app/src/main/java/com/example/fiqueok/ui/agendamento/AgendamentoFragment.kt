@@ -11,19 +11,31 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.fiqueok.R
+import com.example.fiqueok.MainActivity
+import com.example.fiqueok.R.*
 import com.example.fiqueok.data.db.AppDatabase
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
 import com.example.fiqueok.extension.hideKeyboard
 import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
+import com.example.fiqueok.ui.agendamentolist.AgendamentoListFragmentDirections
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.agendamento_fragment.*
+import android.R
+import android.content.Context
+import android.widget.*
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.agendamento_fragment.*
 
 
-class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
+class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
-    private var dataSelecionada: String ="0"
+//    var mainActivity = MainActivity()
+//    val selecionado = mainActivity.selecionado
+
+
+
+
     private val viewModel: AgendamentoViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -42,11 +54,12 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         args.agendamento?.let { agendamento ->
-            button_agendamento.text = getString(R.string.agendamento_button_update)
+            button_agendamento.text = getString(string.agendamento_button_update)
             input_especialidade.setText(agendamento.especialidade)
-            input_data.text = agendamento.data//?.toLocalDate().toString()
+            input_data.text = agendamento.data
             input_horario.setText(agendamento.horario)
 
+            ou.visibility = View.VISIBLE
             button_delete.visibility = View.VISIBLE
         }
         observeEvents()
@@ -87,25 +100,37 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         }
     }
 
+
     private fun setListeners() {
         button_data.setOnClickListener {
-            DatePickerFragment {
-                result -> input_data.text = result
+            DatePickerFragment { result ->
+                input_data.text = result
             }
-                .show(childFragmentManager,"datePicker")
+                .show(childFragmentManager, "datePicker")
         }
-
 
         button_agendamento.setOnClickListener {
             val especialidade = input_especialidade.text.toString()
             val data = input_data?.text.toString()
             val horario = input_horario.text.toString()
+//            Toast.makeText(
+//                activity,
+//                "You selected $selecionado",
+//                Toast.LENGTH_LONG
+//            ).show()
 
-            viewModel.addOrUpdateAgendamento(especialidade, data, horario, args.agendamento?.id ?: 0)
+            viewModel.addOrUpdateAgendamento(
+                especialidade,
+                data,
+                horario,
+                args.agendamento?.id ?: 0
+            )
         }
 
-        button_delete.setOnClickListener{
+        button_delete.setOnClickListener {
             viewModel.removeAgendamento(args.agendamento?.id ?: 0)
         }
+
     }
+
 }
