@@ -102,9 +102,10 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
 
     private fun setListeners() {
-        button_data.setOnClickListener {
+        input_data2.setOnClickListener {
             DatePickerFragment { result ->
                 input_data.text = result
+                input_data2.setText(result)
             }
                 .show(childFragmentManager, "datePicker")
         }

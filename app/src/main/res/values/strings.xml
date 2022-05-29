@@ -19,6 +19,7 @@
     <string name="agendamento_error_to_delete">Ocorreu um erro ao tentar desmarcar.</string>
     <string name="agendamento_error_to_update">Ocorreu um erro ao tentar atualizar.</string>
     <string name="ou">Ou</string>
+    <string name="agendar">Agendar</string>
 
     <!-- Lista de especialidade -->
     <string-array name="lista_especialidades">
