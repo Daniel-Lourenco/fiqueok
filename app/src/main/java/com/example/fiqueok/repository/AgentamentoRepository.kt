@@ -1,8 +1,6 @@
 package com.example.fiqueok.repository
 
-import androidx.lifecycle.LiveData
 import com.example.fiqueok.data.db.entity.AgendamentoEntity
-import org.threeten.bp.OffsetDateTime
 
 interface AgendamentoRepository {
     suspend fun insertAgendamento(especialidade: String, data: String, horario: String): Long

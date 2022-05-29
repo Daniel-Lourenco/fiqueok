@@ -13,6 +13,6 @@ data class AgendamentoEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val especialidade: String,
-    val data: OffsetDateTime?= null,
+    val data: String, //OffsetDateTime?= null,
     val horario: String
 ) : Parcelable

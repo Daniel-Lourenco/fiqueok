@@ -44,7 +44,7 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         args.agendamento?.let { agendamento ->
             button_agendamento.text = getString(R.string.agendamento_button_update)
             input_especialidade.setText(agendamento.especialidade)
-            input_data.text = agendamento.data?.toLocalDate().toString()
+            input_data.text = agendamento.data//?.toLocalDate().toString()
             input_horario.setText(agendamento.horario)
 
             button_delete.visibility = View.VISIBLE
@@ -76,7 +76,7 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
 
     private fun clearFields() {
         input_especialidade.text?.clear()
-        //input_data.text?.clear()
+        input_data.text = ""
         input_horario.text?.clear()
     }
 
@@ -91,7 +91,6 @@ class AgendamentoFragment : Fragment(R.layout.agendamento_fragment) {
         button_data.setOnClickListener {
             DatePickerFragment {
                 result -> input_data.text = result
-                dataSelecionada = result
             }
                 .show(childFragmentManager,"datePicker")
         }
