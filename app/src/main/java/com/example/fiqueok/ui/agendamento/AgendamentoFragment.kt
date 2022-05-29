@@ -22,19 +22,17 @@ import com.example.fiqueok.ui.agendamentolist.AgendamentoListFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.agendamento_fragment.*
 import android.R
+import android.app.DatePickerDialog
 import android.content.Context
+import android.text.TextUtils
 import android.widget.*
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.agendamento_fragment.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
-
-//    var mainActivity = MainActivity()
-//    val selecionado = mainActivity.selecionado
-
-
-
 
     private val viewModel: AgendamentoViewModel by viewModels {
         object : ViewModelProvider.Factory {
@@ -50,13 +48,26 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
     private val args: AgendamentoFragmentArgs by navArgs()
 
+    override fun onResume() {
+        super.onResume()
+        val especialidades = resources.getStringArray(array.lista_especialidades)
+        val adapterEspecialidades = ArrayAdapter(requireContext(), layout.espec_item, especialidades)
+        input_especialidade.setAdapter(adapterEspecialidades)
+
+        val horarios = resources.getStringArray(array.lista_horarios)
+        val adapterHorarios = ArrayAdapter(requireContext(), layout.espec_item, horarios)
+        input_horario.setAdapter(adapterHorarios)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         args.agendamento?.let { agendamento ->
             button_agendamento.text = getString(string.agendamento_button_update)
             input_especialidade.setText(agendamento.especialidade)
-            input_data.text = agendamento.data
+            input_data.setText(agendamento.data)
             input_horario.setText(agendamento.horario)
 
             ou.visibility = View.VISIBLE
@@ -89,7 +100,7 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
     private fun clearFields() {
         input_especialidade.text?.clear()
-        input_data.text = ""
+        input_data.text?.clear()
         input_horario.text?.clear()
     }
 
@@ -102,10 +113,9 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
 
     private fun setListeners() {
-        input_data2.setOnClickListener {
+        input_data.setOnClickListener {
             DatePickerFragment { result ->
-                input_data.text = result
-                input_data2.setText(result)
+                input_data.setText(result)
             }
                 .show(childFragmentManager, "datePicker")
         }
@@ -114,11 +124,6 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
             val especialidade = input_especialidade.text.toString()
             val data = input_data?.text.toString()
             val horario = input_horario.text.toString()
-//            Toast.makeText(
-//                activity,
-//                "You selected $selecionado",
-//                Toast.LENGTH_LONG
-//            ).show()
 
             viewModel.addOrUpdateAgendamento(
                 especialidade,
