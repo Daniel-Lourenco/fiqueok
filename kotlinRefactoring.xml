@@ -1,0 +1,6 @@
+<application>
+  <component name="KotlinRefactoringSettings">
+    <option name="MOVE_PREVIEW_USAGES" value="false" />
+    <option name="MOVE_MPP_DECLARATIONS" value="false" />
+  </component>
+</application>

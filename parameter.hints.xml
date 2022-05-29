@@ -1,0 +1,14 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <blacklists>
+      <blacklist language="Kotlin">
+        <added pattern="com.example.bootcampkotlin.ContactAdapter.Contact(Tania)" />
+        <added pattern="com.example.bootcampkotlin.ContactAdapter.Contact(Tania,s,phone)" />
+        <added pattern="com.example.bootcampkotlin.ContactAdapter(name)" />
+      </blacklist>
+    </blacklists>
+    <disabledLanguages>
+      <language id="kotlin" />
+    </disabledLanguages>
+  </component>
+</application>
