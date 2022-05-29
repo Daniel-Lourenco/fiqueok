@@ -14,7 +14,10 @@
         android:id="@+id/input_layout_especialidade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:startIconDrawable="@drawable/ic_especialidade"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconTint="@color/laranja_itau"
+        app:boxBackgroundColor="@android:color/background_light"
+        app:startIconDrawable="@drawable/ic_maleta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +31,38 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_data2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconTint="@color/laranja_itau"
+        app:boxBackgroundColor="@android:color/background_light"
+        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:editable="false">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_data2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agendamento_data_hint"
+            android:inputType="textCapSentences" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <LinearLayout
+        android:visibility="invisible"
+        tools:visibility="invisible"
         android:id="@+id/input_layout_data"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -60,6 +94,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconTint="@color/laranja_itau"
+        app:boxBackgroundColor="@android:color/background_light"
+        app:startIconDrawable="@drawable/ic_clock"
         app:layout_constraintEnd_toEndOf="@id/input_layout_data"
         app:layout_constraintStart_toStartOf="@id/input_layout_data"
         app:layout_constraintTop_toBottomOf="@id/input_layout_data">
@@ -77,7 +115,7 @@
         android:id="@+id/input_especialidade2"
         android:entries="@array/lista_especialidades"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/input_layout_horario"
         tools:layout_editor_absoluteX="16dp" />
@@ -86,7 +124,7 @@
         android:id="@+id/input_horario2"
         android:entries="@array/lista_horarios"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/input_especialidade2"
         tools:layout_editor_absoluteX="16dp" />
@@ -126,20 +164,5 @@
         app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
         app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
         tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/button_delete"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.*.ExposedDropdownMenu">
-
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
