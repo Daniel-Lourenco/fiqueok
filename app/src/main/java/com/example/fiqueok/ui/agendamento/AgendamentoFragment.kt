@@ -1,9 +1,8 @@
 package com.example.fiqueok.ui.agendamento
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -11,25 +10,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.fiqueok.MainActivity
 import com.example.fiqueok.R.*
 import com.example.fiqueok.data.db.AppDatabase
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
 import com.example.fiqueok.extension.hideKeyboard
 import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
-import com.example.fiqueok.ui.agendamentolist.AgendamentoListFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.agendamento_fragment.*
-import android.R
-import android.app.DatePickerDialog
-import android.content.Context
-import android.text.TextUtils
-import android.widget.*
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.agendamento_fragment.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
@@ -121,22 +109,49 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
         }
 
         button_agendamento.setOnClickListener {
-            val especialidade = input_especialidade.text.toString()
-            val data = input_data?.text.toString()
-            val horario = input_horario.text.toString()
+            if (!validaFormulario()) {
 
-            viewModel.addOrUpdateAgendamento(
-                especialidade,
-                data,
-                horario,
-                args.agendamento?.id ?: 0
-            )
+                val especialidade = input_especialidade.text.toString()
+                val data = input_data?.text.toString()
+                val horario = input_horario.text.toString()
+
+                viewModel.addOrUpdateAgendamento(
+                    especialidade,
+                    data,
+                    horario,
+                    args.agendamento?.id ?: 0
+                )
+            }
         }
 
         button_delete.setOnClickListener {
             viewModel.removeAgendamento(args.agendamento?.id ?: 0)
         }
 
+    }
+
+    private fun validaFormulario(): Boolean{
+        var error = false
+
+        if(input_especialidade.text.isEmpty()){
+            input_layout_especialidade.error = "Escolha a especialidade"
+            error = true
+        } else{
+            input_layout_especialidade.error = ""
+        }
+        if(input_data.text!!.isEmpty()){
+            input_layout_data.error = "Defina a data da consulta"
+            error = true
+        } else{
+            input_layout_data.error = ""
+        }
+        if(input_horario.text.isEmpty()){
+            input_layout_horario.error = "Defina o horario da consulta"
+            error = true
+        } else{
+            input_layout_horario.error = ""
+        }
+        return error
     }
 
 }

@@ -23,12 +23,17 @@
             android:layout_marginLeft="16dp"
             android:text="Agendar" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_agendamentos"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="578dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/agendamento_item" />
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_agendamentos"
+                android:layout_width="match_parent"
+                android:layout_height="578dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/agendamento_item" />
+        </ScrollView>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
