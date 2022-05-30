@@ -17,6 +17,7 @@ import com.example.fiqueok.extension.hideKeyboard
 import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.agendamento_fragment.*
 
 
@@ -45,11 +46,11 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
         val horarios = resources.getStringArray(array.lista_horarios)
         val adapterHorarios = ArrayAdapter(requireContext(), layout.espec_item, horarios)
         input_horario.setAdapter(adapterHorarios)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
         args.agendamento?.let { agendamento ->
