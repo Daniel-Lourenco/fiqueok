@@ -9,6 +9,9 @@ Pessoal Fique Ok, com o objetivo de acolher e orientar quem está passando por s
    
 ![image](https://user-images.githubusercontent.com/67913073/171033962-bfe08f32-bfea-4aca-b301-4e6f98606efc.png)
 
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)]([https://youtu.be/vt5fpE0bzSY](https://youtube.com/shorts/xHpmz7irp6k?feature=share))
+
+
 
   
    
