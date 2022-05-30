@@ -11,9 +11,17 @@ Pessoal Fique Ok, com o objetivo de acolher e orientar quem está passando por s
 
 https://youtube.com/shorts/xHpmz7irp6k
  
+O projeto trata-se de um aplicativo Android desenvolvido em Kotlin, e conta com os seguintes recursos:
+
+- ROOm Database + CRUD
+- Navigation
+- Datepicker
+- Formulário com validações
+- RecycleViews- 
 
 
-### desenvolvido em Kotlin 
-####por Tania Mara & Daniel Lourenço
 
+
+
+### desenvolvido por Tania Mara & Daniel Lourenço
 Obs.: O atual projeto inclui implementações do repositório https://github.com/taniamaferreira/tela-agendamento, como por exemplo, a implementação do Datepicker Nativo.
