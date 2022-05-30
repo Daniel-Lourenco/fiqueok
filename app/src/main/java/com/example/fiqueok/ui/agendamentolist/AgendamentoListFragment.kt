@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.fiqueok.R
-import com.example.fiqueok.ui.agendamentolist.AgendamentoListAdapter
 import com.example.fiqueok.data.db.AppDatabase
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
 import com.example.fiqueok.extension.navigateWithAnimations
@@ -35,7 +34,6 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModelEvents()
         configureViewListeners()
-
     }
 
     private fun observeViewModelEvents() {
@@ -65,5 +63,4 @@ class AgendamentoListFragment : Fragment(R.layout.agendamento_list_fragment) {
             findNavController().navigateWithAnimations(R.id.action_agendamentoListFragment_to_agendamentoFragment)
         }
     }
-
 }

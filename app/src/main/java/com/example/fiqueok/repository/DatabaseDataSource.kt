@@ -16,7 +16,7 @@ class DatabaseDataSource(
             especialidade = especialidade,
             data = data,
             horario = horario
-            )
+        )
         return atendimentosDAO.insert(agendamento)
     }
 

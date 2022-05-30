@@ -29,7 +29,8 @@ class AgendamentoListAdapter(
     override fun getItemCount(): Int = agendamentos.size
 
     inner class AgendamentoListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textViewAgendamentoEspecialidade: TextView = itemView.text_agendamento_especialidade
+        private val textViewAgendamentoEspecialidade: TextView =
+            itemView.text_agendamento_especialidade
         private val textViewAgendamentoData: TextView = itemView.text_agendamento_data
         private val textViewAgendamentoHorario: TextView = itemView.text_agendamento_horario
 
@@ -38,7 +39,7 @@ class AgendamentoListAdapter(
             textViewAgendamentoData.text = agendamento.data
             textViewAgendamentoHorario.text = agendamento.horario
 
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 onItemClick?.invoke(agendamento)
             }
         }
