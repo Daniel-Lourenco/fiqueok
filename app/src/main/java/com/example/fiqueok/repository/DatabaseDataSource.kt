@@ -2,7 +2,6 @@ package com.example.fiqueok.repository
 
 import com.example.fiqueok.data.db.dao.AtendimentosDAO
 import com.example.fiqueok.data.db.entity.AgendamentoEntity
-import com.example.fiqueok.ui.agendamento.ConversorDeData
 
 class DatabaseDataSource(
     private val atendimentosDAO: AtendimentosDAO

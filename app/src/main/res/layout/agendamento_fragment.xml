@@ -10,136 +10,85 @@
     android:padding="16dp"
     tools:context=".ui.agendamento.AgendamentoFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_especialidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconTint="@color/laranja_itau"
-        app:boxBackgroundColor="@android:color/background_light"
-        app:startIconDrawable="@drawable/ic_maleta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_especialidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/agendamento_especialidade_hint"
-            android:inputType="textCapSentences" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_data2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconTint="@color/laranja_itau"
-        app:boxBackgroundColor="@android:color/background_light"
-        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:editable="false">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_data2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/agendamento_data_hint"
-            android:inputType="textCapSentences" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-    <LinearLayout
-        android:visibility="invisible"
-        tools:visibility="invisible"
-        android:id="@+id/input_layout_data"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/inputs_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_data"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Data"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="152dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_especialidade"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_maleta"
+            app:startIconTint="@color/laranja_itau">
 
-        <TextView
-            android:id="@+id/input_data"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:textSize="16sp"
-            tools:text="@tools:sample/date/ddmmyy" />
+            <AutoCompleteTextView
+                android:id="@+id/input_especialidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="@string/agendamento_especialidade_hint"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_data"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+            app:startIconTint="@color/laranja_itau"
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="@string/agendamento_data_hint"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_horario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@android:color/background_light"
+            app:startIconDrawable="@drawable/ic_clock"
+            app:startIconTint="@color/laranja_itau"
+            android:layout_marginTop="20dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/input_horario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="@string/agendamento_horario_hint"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_horario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconTint="@color/laranja_itau"
-        app:boxBackgroundColor="@android:color/background_light"
-        app:startIconDrawable="@drawable/ic_clock"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_data"
-        app:layout_constraintStart_toStartOf="@id/input_layout_data"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_data">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_horario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/agendamento_horario_hint"
-            android:inputType="textEmailAddress" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Spinner
-        android:id="@+id/input_especialidade2"
-        android:entries="@array/lista_especialidades"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_horario"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <Spinner
-        android:id="@+id/input_horario2"
-        android:entries="@array/lista_horarios"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/input_especialidade2"
-        tools:layout_editor_absoluteX="16dp" />
-
 
     <Button
         android:id="@+id/button_agendamento"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="50dp"
         android:text="@string/agendamento_button"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
+        app:layout_constraintEnd_toEndOf="@id/inputs_layout"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_especialidade" />
+        app:layout_constraintStart_toStartOf="@id/inputs_layout"
+        app:layout_constraintTop_toBottomOf="@id/inputs_layout" />
 
     <TextView
         android:id="@+id/ou"
@@ -147,11 +96,11 @@
         android:layout_height="40dp"
         android:layout_weight="3"
         android:gravity="center"
-        android:textSize="16sp"
         android:text="@string/ou"
+        android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/button_agendamento"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/button_delete"
@@ -160,9 +109,9 @@
         android:text="@string/agendamento_button_delete"
         android:textColor="@android:color/white"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/inputs_layout"
+        app:layout_constraintStart_toStartOf="@id/inputs_layout"
         app:layout_constraintTop_toBottomOf="@id/ou"
-        app:layout_constraintEnd_toEndOf="@id/input_layout_especialidade"
-        app:layout_constraintStart_toStartOf="@id/input_layout_especialidade"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
