@@ -17,7 +17,6 @@ import com.example.fiqueok.extension.hideKeyboard
 import com.example.fiqueok.repository.AgendamentoRepository
 import com.example.fiqueok.repository.DatabaseDataSource
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.agendamento_fragment.*
 
 
@@ -40,7 +39,8 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
     override fun onResume() {
         super.onResume()
         val especialidades = resources.getStringArray(array.lista_especialidades)
-        val adapterEspecialidades = ArrayAdapter(requireContext(), layout.espec_item, especialidades)
+        val adapterEspecialidades =
+            ArrayAdapter(requireContext(), layout.espec_item, especialidades)
         input_especialidade.setAdapter(adapterEspecialidades)
 
         val horarios = resources.getStringArray(array.lista_horarios)
@@ -131,25 +131,25 @@ class AgendamentoFragment : Fragment(layout.agendamento_fragment) {
 
     }
 
-    private fun validaFormulario(): Boolean{
+    private fun validaFormulario(): Boolean {
         var error = false
 
-        if(input_especialidade.text.isEmpty()){
+        if (input_especialidade.text.isEmpty()) {
             input_layout_especialidade.error = "Escolha a especialidade"
             error = true
-        } else{
+        } else {
             input_layout_especialidade.error = ""
         }
-        if(input_data.text!!.isEmpty()){
+        if (input_data.text!!.isEmpty()) {
             input_layout_data.error = "Defina a data da consulta"
             error = true
-        } else{
+        } else {
             input_layout_data.error = ""
         }
-        if(input_horario.text.isEmpty()){
+        if (input_horario.text.isEmpty()) {
             input_layout_horario.error = "Defina o horario da consulta"
             error = true
-        } else{
+        } else {
             input_layout_horario.error = ""
         }
         return error

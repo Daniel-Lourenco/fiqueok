@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.fiqueok.R
 import com.example.fiqueok.repository.AgendamentoRepository
 import kotlinx.coroutines.launch
-import org.threeten.bp.OffsetDateTime
 
 class AgendamentoViewModel(
     private val repository: AgendamentoRepository
@@ -70,8 +69,6 @@ class AgendamentoViewModel(
             Log.e(TAG, ex.toString())
         }
     }
-
-
 
     sealed class AgendamentoState {
         object Inserted : AgendamentoState()

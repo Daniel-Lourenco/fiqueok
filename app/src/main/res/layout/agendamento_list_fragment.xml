@@ -4,33 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/moca"
     tools:context=".ui.agendamentolist.AgendamentoListFragment">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="800dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/moca"/>
+
 
     <LinearLayout
-        android:layout_width="421dp"
+        android:layout_width="match_parent"
         android:layout_height="408dp"
         android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/button_agendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/agendar" />
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/agendar"/>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_agendamentos"
