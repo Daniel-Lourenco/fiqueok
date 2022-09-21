@@ -23,5 +23,4 @@ O projeto trata-se de um aplicativo Android desenvolvido em Kotlin, e conta com 
 
 
 
-### desenvolvido por Tania Mara & Daniel Lourenço
-Obs.: O atual projeto inclui implementações do repositório https://github.com/taniamaferreira/tela-agendamento, como por exemplo, a implementação do Datepicker Nativo.
+##### Desenvolvido por Daniel Lourenço & Tania Mara
